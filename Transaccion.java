@@ -1,33 +1,25 @@
 /**
  * Clase Transaccion
- * @author Sanchez Solano Juan Cruz
+ * @author Sagnchez Solano Juan Cruz
  */
 
 public class Transaccion{
-    private float monto;
+    private Float monto;
     private String descripcion; 
-    private int hora;
+    private Integer[] hora = new Integer[2];
     Fecha fecha;
 
-    public Transaccion(float monto, Fecha fecha, String descripcion, int hora){
+    public Transaccion(float monto, String descripcion, int hora, int minuto){
+        
+        if(descripcion == null) throw new NullPointerException("Error: Descripcion no puede ser nulo");
+        if(descripcion.isBlank()) throw new IllegalArgumentException("Error: Descripcion no puede estar en blanco");
+        if(hora > 23 || hora < 00) throw new IllegalArgumentException("Error: Hora tiene que estar en el rango [00, 23]");
+        if(minuto > 59 || minuto < 0) throw new IllegalArgumentException("Error: Minuto tiene que estar en el rango [00, 59]");
         this.monto = monto;
-        this.descripcion = descripcion;
-        this.fecha = fecha;
-        this.hora = hora;   
+        this.fecha = new Fecha(23, 05, 2026);//Simulacion de fecha automatica"
+        this.hora[0] = hora;
+        this.hora[1] = minuto;
     }
-    
-    public void setMonto(float monto){
-        this.monto = monto;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public void setHora(int hora) {
-        this.hora = hora;
-    }
-
     public String getDescripcion() {
         return descripcion;
     }
@@ -36,11 +28,15 @@ public class Transaccion{
         return fecha;
     }
 
-    public int getHora() {
+    public Integer[] getHora(){
         return hora;
     }
 
-    public float getMonto() {
+    public Float getMonto() {
         return monto;
+    }
+    
+    public String toString(){        
+        return fecha.toString() + hora[0] + ":" + hora[1] + monto + "'" + descripcion + "'"; 
     }
 }
