@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 public class Persona{
+=======
+public class Persona {
+>>>>>>> 27b1da735889c65e2a8a94cc1b588ecee9721867
  private 
  int dni;
  String nombre;
@@ -34,4 +38,12 @@ public class Persona{
     public String getNombre() {
         return nombre;
     }
+<<<<<<< HEAD
 }
+=======
+
+    String toString(){
+        return nombre + ", " + anio_ingreso + ", " + dni;
+    }
+}
+>>>>>>> 27b1da735889c65e2a8a94cc1b588ecee9721867
