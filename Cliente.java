@@ -97,11 +97,6 @@ public class Cliente extends Persona{
         actualizarArchivo(transaccion.ToString());
     }
 
-    /**
-     * Ingresa la transaccion realizada a por el cliente a un archivo de texto
-     * @param datos con las caracteristicas de la transaccion
-     * @throws IOException si el archivo tiene algun error
-     */
     private void actualizarArchivo(String datos) throws IOException{
         FileWriter a = new FileWriter(getNombre() + "_" + getDni(), true);
         BufferedWriter b = new BufferedWriter(a);
