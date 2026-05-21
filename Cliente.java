@@ -75,9 +75,6 @@ public class Cliente extends Persona{
      */
     void realizarTransaccion(String tipo_cuenta, Integer monto, String tipo_transaccion){
 
-        if(cuenta.getEstado().equals("inactivo") || getEstado().equals("inactivo")){
-            throw new IllegalStateException("La cuenta no esta activa");
-        }
         if(!tipo_transaccion.equals("deposito") && !tipo_transaccion.equals("Deposito") && !tipo_transaccion.equals("transaccion") && !tipo_transaccion.equals("Transaccion")) {
         throw new IllegalArgumentException("El tipo de transaccion no es valido");
         }
@@ -85,9 +82,15 @@ public class Cliente extends Persona{
             throw new IllegalArgumentException("El monto de transaccion no puede ser menor o igual a cero");
         }
         if(tipo_cuenta.equals("pesos")){
+            if(cuentaPesos.getEstado().equals("inactivo") || getEstado().equals("inactivo")){
+            throw new IllegalStateException("La cuenta no esta activa");
+            }
         Transaccion transaccion = new Transaccion(monto, tipo_transaccion);
         transaccion.realizarTransaccion(cuentaPesos);
         }else if(tipo_cuenta.equals("dolares")){
+            if(cuentaDolares.getEstado().equals("inactivo") || getEstado().equals("inactivo")){
+            throw new IllegalStateException("La cuenta no esta activa");
+            }
             Transaccion transaccion = new Transaccion(monto, tipo_transaccion);
         transaccion.realizarTransaccion(cuentaDolares);
         }
