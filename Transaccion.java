@@ -20,6 +20,7 @@ public class Transaccion{
         this.hora[0] = hora;
         this.hora[1] = minuto;
     }
+
     public String getDescripcion() {
         return descripcion;
     }
