@@ -1,8 +1,8 @@
 public class Personal extends Persona{
     private String cargo;
 
-    public Personal(Integer dni, String nombre, Integer anio_ingreso, String estado, String cargo){
-        super(dni, nombre, anio_ingreso, estado);
+    public Personal(Integer dni, String nombre, Integer anio_ingreso, String cargo){
+        super(dni, nombre, anio_ingreso);
         this.cargo = cargo;
     }
 
@@ -14,7 +14,7 @@ public class Personal extends Persona{
     }
 
     String toString(){
-        return nombre + ", " + anio_ingreso + ", " + dni + ", " + cargo + ", " + estado ;
+        return nombre + ", " + anio_ingreso + ", " + dni + ", " + cargo;
     }
 }
 
