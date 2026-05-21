@@ -14,8 +14,6 @@ public class Transaccion{
     Fecha fecha;
 
     public Transaccion(float monto, String descripcion, String tipo){
-        if(descripcion == null) throw new NullPointerException("Error: Descripcion no puede ser nulo");
-        if(descripcion.isBlank()) throw new IllegalArgumentException("Error: Descripcion no puede estar en blanco");
         this.monto = monto;
         this.descripcion = descripcion;
         this.tipo = tipo;
