@@ -30,7 +30,7 @@ public class Cliente extends Persona{
         transaccion.realizarTransaccion(tipo_cuenta, tipo_transaccion);
     }
 
-    String toString(){
-        return nombre + ", " + anio_ingreso + ", " + dni + ", " + nro_cliente + ", " + estado ;
+    String Descripcion(){
+        return toString() + nro_cliente + ", " + estado ;
     }
 }
