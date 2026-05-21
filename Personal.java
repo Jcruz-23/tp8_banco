@@ -13,8 +13,8 @@ public class Personal extends Persona{
         return cargo;
     }
 
-    String toString(){
-        return nombre + ", " + anio_ingreso + ", " + dni + ", " + cargo;
+    String Descripcion(){
+        return toString() + ", " + cargo;
     }
 }
 
