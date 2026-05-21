@@ -92,7 +92,7 @@ public class Cuenta {
      * Actualiza el saldo de la cuenta cuando se opera con ella
      * @param monto a extraer o depositar
      */
-    public void actualizarSaldo(double monto){
+    public void actualizarSaldo(Integer monto){
         saldo+=monto;
     }
 }
