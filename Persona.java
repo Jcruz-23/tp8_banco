@@ -34,4 +34,8 @@ public class Persona {
     public String getNombre() {
         return nombre;
     }
+
+    String toString(){
+        return nombre + ", " + anio_ingreso + ", " + dni;
+    }
 }
