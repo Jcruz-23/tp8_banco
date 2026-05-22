@@ -14,7 +14,7 @@ public class Fecha {
      * @param mes
      * @param anio
      */
-    public Fecha(int dia, int mes, int anio) {
+    public Fecha(Integer dia, Integer mes, Integer anio) {
         this.dia = dia;
         this.mes = mes;
         this.anio = anio;
