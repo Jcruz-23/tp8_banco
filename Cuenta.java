@@ -36,7 +36,7 @@ public class Cuenta {
      * Setea el saldo de la cuenta
      * @param saldo
      */
-    public void setSaldo(double saldo) {
+    public void setSaldo(Double saldo) {
         this.saldo = saldo;
     }
 
