@@ -7,9 +7,9 @@ public class Main {
         Banco banco = new Banco();
 
         try{
-        banco.registrarCliente(45589354, "Maria", 3568.25);
-        banco.registrarCliente(29665741, "Ana", 98714.23);
-        banco.registrarCliente(23587412, "Carlos", 896547.3);
+        banco.registrarCliente(45589354, "Maria", 3568.25, 358.2);
+        banco.registrarCliente(29665741, "Ana", 98714.23, 1320.46);
+        banco.registrarCliente(23587412, "Carlos", 896547.3, 743.23);
         banco.registrarEmpleado(45879852, "Juan", "Limpieza");
         banco.registrarEmpleado(21054785, "Carlo", "Gerente");
         banco.cambiarEstadoCliente(29665741, "inactivo");
