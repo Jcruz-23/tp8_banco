@@ -9,7 +9,6 @@ public class Banco {
     public Banco(){
         clientes = new ArrayList<Cliente>();
         empleados = new ArrayList<Personal>();
-    }
 
     public void registrarCliente(Integer dni, String nombre, double saldo){
         buscarDniCliente(dni);
@@ -107,9 +106,10 @@ public class Banco {
     public Cliente buscarCliente(Integer dni) throws ClienteNoEncontradoException {
         for(Cliente c : clientes){
             if(c.getDni().equals(dni)){
-                return c;
+            return c;
             }
         }
         throw new ProductoNoEncontradoException("No se econtro el cliente " + dni);
     }
+}
 }
