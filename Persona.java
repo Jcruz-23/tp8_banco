@@ -5,9 +5,9 @@
  */
 public class Persona{
  private 
- int dni;
+ Integer dni;
  String nombre;
- int anio_ingreso;
+ Integer anio_ingreso;
  
  /**
   * Constructor de objetos de la clase Persona
@@ -15,7 +15,7 @@ public class Persona{
   * @param nombre de la persona 
   * @param anio_ingreso al sistema
   */
- public Persona(int dni, String nombre, int anio_ingreso){
+ public Persona(Integer dni, String nombre, Integer anio_ingreso){
     this.dni = dni;
     this.nombre = nombre;
     this.anio_ingreso = anio_ingreso;
@@ -25,7 +25,7 @@ public class Persona{
   * Setea el anio de ingreso
   * @param anio_ingreso al sistema
   */
-    public void setAnio_ingreso(int anio_ingreso) {
+    public void setAnio_ingreso(Integer anio_ingreso) {
         this.anio_ingreso = anio_ingreso;
     }
 
@@ -33,7 +33,7 @@ public class Persona{
      * Setea el dni
      * @param dni de la persona
      */
-    public void setDni(int dni) {
+    public void setDni(Integer dni) {
         this.dni = dni;
     }
 
@@ -49,7 +49,7 @@ public class Persona{
      * Retorna el anio de ingreso
      * @return anio_ingreso al sistema
      */
-    public int getAnio_ingreso() {
+    public Integer getAnio_ingreso() {
         return anio_ingreso;
     }
 
@@ -57,7 +57,7 @@ public class Persona{
      * Retorna el dni
      * @return dni de la persona
      */
-    public int getDni() {
+    public Integer getDni() {
         return dni;
     }
     

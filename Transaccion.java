@@ -6,24 +6,18 @@ import java.util.*;
  */
 
 public class Transaccion{
-    private Float monto;
-    private String descripcion; 
+    private Integer monto;
     private Integer[] hora = new Integer[2];
     private String tipo;
     private Random rand = new Random();
     Fecha fecha;
 
-    public Transaccion(float monto, String descripcion, String tipo){
+    public Transaccion(Integer monto, String tipo){
         this.monto = monto;
-        this.descripcion = descripcion;
         this.tipo = tipo;
         this.fecha = new Fecha(23, 05, 2026);//Simulacion de fecha automatica"
         this.hora[0] = rand.nextInt(24);//de 0 a 23
         this.hora[1] = rand.nextInt(60);//de 0 a 59
-    }
-
-    public String getDescripcion() {
-        return descripcion;
     }
 
     public Fecha getFecha() {
@@ -34,12 +28,12 @@ public class Transaccion{
         return hora;
     }
 
-    public Float getMonto() {
+    public Integer getMonto() {
         return monto;
     }
     
-    public String toString(){        
-        return fecha.toString() + hora[0] + ":" + hora[1] + monto + "'" + descripcion + "'"; 
+    public String ToString(){        
+        return fecha.toString() + hora[0] + ":" + hora[1] + monto;
     }
 
     public void realizarTransaccion(Cuenta cuenta){

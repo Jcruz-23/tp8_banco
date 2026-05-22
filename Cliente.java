@@ -1,6 +1,5 @@
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.io.FilterWriter;
 import java.io.IOException;
 /**
  * Representa un Cliente 
@@ -73,7 +72,7 @@ public class Cliente extends Persona{
      * @throws IllegalStateException si se intenta operar en una cuenta inactiva o con un cliente inactivo
      * @throws IllegalArgumentException si se intenta operar una transaccion no permitida o si el monto a operar es no valido
      */
-    void realizarTransaccion(String tipo_cuenta, Integer monto, String tipo_transaccion){
+    void realizarTransaccion(String tipo_cuenta, Integer monto, String tipo_transaccion) throws IOException{
 
         if(!tipo_transaccion.equals("deposito") && !tipo_transaccion.equals("Deposito") && !tipo_transaccion.equals("transaccion") && !tipo_transaccion.equals("Transaccion")) {
         throw new IllegalArgumentException("El tipo de transaccion no es valido");
@@ -87,14 +86,15 @@ public class Cliente extends Persona{
             }
         Transaccion transaccion = new Transaccion(monto, tipo_transaccion);
         transaccion.realizarTransaccion(cuentaPesos);
+        actualizarArchivo(transaccion.ToString());
         }else if(tipo_cuenta.equals("dolares")){
             if(cuentaDolares.getEstado().equals("inactivo") || getEstado().equals("inactivo")){
             throw new IllegalStateException("La cuenta no esta activa");
-            }
-            Transaccion transaccion = new Transaccion(monto, tipo_transaccion);
-        transaccion.realizarTransaccion(cuentaDolares);
         }
-        actualizarArchivo(transaccion.ToString());
+            Transaccion transaccion = new Transaccion(monto, tipo_transaccion);
+            transaccion.realizarTransaccion(cuentaDolares);
+            actualizarArchivo(transaccion.ToString());
+        }
     }
 
     private void actualizarArchivo(String datos) throws IOException{

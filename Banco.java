@@ -9,12 +9,13 @@ public class Banco {
     public Banco(){
         clientes = new ArrayList<Cliente>();
         empleados = new ArrayList<Personal>();
+    }
 
-    public void registrarCliente(Integer dni, String nombre, double saldo){
+    public void registrarCliente(Integer dni, String nombre, Double saldo){
         buscarDniCliente(dni);
         if(nombre.equals("")) throw new IllegalArgumentException("Nombre no puede estar vacio");
         if(dni < 1000000 || dni > 48000000) throw new IllegalArgumentException("Dni no esta en el rango permitido");
-        if(saldo<0) throw new IllegalArgumentException("Saldo no puede ser negativo");
+        if(saldo < 0) throw new IllegalArgumentException("Saldo no puede ser negativo");
 
         Cuenta cuentaDolares = new Cuenta("Dolares", rand.nextInt(10000), saldo, "activa");
         Cuenta cuentaPesos = new Cuenta("Pesos", rand.nextInt(10000), saldo, "activa");
@@ -23,7 +24,7 @@ public class Banco {
         clientes.add(cliente);
     }
 
-    public void registarEmpleado(Integer dni, String nombre, String cargo){
+    public void registrarEmpleado(Integer dni, String nombre, String cargo){
         buscarDniEmpleado(dni);
         if(nombre.equals("")) throw new IllegalArgumentException("Nombre no puede estar vacio");
         if(dni < 10000000 || dni > 48000000) throw new  IllegalArgumentException("Dni no esta en el rango permitido");
@@ -69,11 +70,25 @@ public class Banco {
             }
     }
 
+    public void listarTransaccionesCliente(Integer dni) throws IOException, FileNotFoundException{
+        for (Cliente c : clientes){
+            if(c.getDni().equals(dni)){
+            BufferedReader br = new BufferedReader(new FileReader(c.getNombre() + "_" + c.getDni()));
+            String linea;
+            while((linea = br.readLine()) != null){
+                System.out.println(linea);
+                }
+            br.close();
+            }
+        }    
+    }
+
     public void listarClientes(){
         for(Cliente c : clientes){
             System.out.println(c.Descripcion());
         }
     }   
+
     public void listarPersonal(){
         for(Personal p : empleados){
             System.out.println(p.Descripcion());
@@ -92,7 +107,7 @@ public class Banco {
         }
     }
 
-    public void cambiarEstadoCliente(Integer dni, String estado) throws ClienteNoEncontradoEcxeption{
+    public void cambiarEstadoCliente(Integer dni, String estado) throws ClienteNoEncontradoException{
         if(estado.equals("") || (!estado.equals("activo") && !estado.equals("inactivo"))) throw new IllegalArgumentException("Estado no es valido"); 
         Cliente c = buscarCliente(dni);
         c.setEstado(estado);
@@ -109,7 +124,6 @@ public class Banco {
             return c;
             }
         }
-        throw new ProductoNoEncontradoException("No se econtro el cliente " + dni);
+        throw new ClienteNoEncontradoException("No se econtro el cliente " + dni);
     }
-}
 }

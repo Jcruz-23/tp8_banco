@@ -7,7 +7,7 @@ public class Cuenta {
     private 
     String tipo_cuenta;
     Integer nro_cuenta;
-    double saldo;
+    Double saldo;
     String estado;
 
     /**
@@ -17,7 +17,7 @@ public class Cuenta {
      * @param saldo dentro de la cuenta
      * @param estado si esta activa para operaciones o no
      */
-    public Cuenta(String tipo_cuenta, Integer nro_cuenta, double saldo, String estado){
+    public Cuenta(String tipo_cuenta, Integer nro_cuenta, Double saldo, String estado){
         this.tipo_cuenta = tipo_cuenta;
         this.nro_cuenta = nro_cuenta;
         this.saldo = saldo;
@@ -68,7 +68,7 @@ public class Cuenta {
      * Retorna el saldo que posee la cuenta
      * @return saldo
      */
-    public double getSaldo() {
+    public Double getSaldo() {
         return saldo;
     }
 
