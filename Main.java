@@ -1,3 +1,6 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -24,6 +27,10 @@ public class Main {
             System.out.println("Error: " + e.getMessage());
         }catch(RuntimeException ex){
             System.out.println("Error: " + ex.getMessage());
+        }catch(IOException exc){
+            System.out.println("Error: " + exc.getMessage());
+        }catch(FileNotFoundException exce){
+            System.out.println("Error: " + exce.getMessage());
         }
     }
 }
