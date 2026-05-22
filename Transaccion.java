@@ -33,7 +33,7 @@ public class Transaccion{
     }
     
     public String ToString(){        
-        return fecha.toString() + hora[0] + ":" + hora[1] + monto;
+        return fecha.ToString() + ", " + hora[0] + ":" + hora[1] + ", " + monto;
     }
 
     public void realizarTransaccion(Cuenta cuenta){

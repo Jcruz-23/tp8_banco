@@ -84,12 +84,18 @@ public class Cliente extends Persona{
             if(cuentaPesos.getEstado().equals("inactivo") || getEstado().equals("inactivo")){
             throw new IllegalStateException("La cuenta no esta activa");
             }
+        if(cuentaPesos.getSaldo() < monto.intValue()) {
+           throw new IllegalArgumentException("El valor ingresado es mayor que el saldo");
+        }
         Transaccion transaccion = new Transaccion(monto, tipo_transaccion);
         transaccion.realizarTransaccion(cuentaPesos);
         actualizarArchivo(transaccion.ToString());
         }else if(tipo_cuenta.equals("dolares")){
             if(cuentaDolares.getEstado().equals("inactivo") || getEstado().equals("inactivo")){
             throw new IllegalStateException("La cuenta no esta activa");
+        }
+        if(cuentaDolares.getSaldo() < monto.intValue()) {
+           throw new IllegalArgumentException("El valor ingresado es mayor que el saldo");
         }
             Transaccion transaccion = new Transaccion(monto, tipo_transaccion);
             transaccion.realizarTransaccion(cuentaDolares);
@@ -110,6 +116,6 @@ public class Cliente extends Persona{
      * @return cadena con datos 
      */
     public String Descripcion(){
-        return ToString() + nro_cliente + ", " + estado ;
+        return ToString() + ", " + nro_cliente + ", " + estado ;
     }
 }
